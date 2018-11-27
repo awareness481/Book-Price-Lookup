@@ -8,18 +8,6 @@ class App extends Component {
 
     fetch(`/api/books/${this.state.value}`)
       .then(data => data.json())
-      .then(data  => {
-        data = data['GoodreadsResponse']['search']['results']['work'];
-        data = data.map((res) => {
-          return {
-            id: res.id._text,
-            title: res.best_book.title._text,
-            name: res.best_book.author.name._text,
-            year: res.original_publication_year._text,
-          }
-        });
-        return data;
-      })
       .then(data => this.setState({data}))
   }
 
