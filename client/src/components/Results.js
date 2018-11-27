@@ -1,18 +1,24 @@
-import React from 'react';
+import React from "react";
 
-const Results = (props) => {
+const Results = props => {
   const results = props.data;
   let books = results.map(book => {
     return (
-      <li>{book.title}, {book.name}, {book.year}</li>
+      <div class="row">
+        <div class="col s12 m6">
+          <div class="card blue-grey darken-1">
+            <div class="card-content white-text">
+              <span class="card-title">{book.title}</span>
+              <p>Author: {book.name}</p>
+              <p>Published in {book.year}</p>
+            </div>
+          </div>
+        </div>
+      </div>
     );
-  })
+  });
 
-  return (
-    <ul>
-      {books}
-    </ul>
-  );
-}
+  return <div>{books}</div>;
+};
 
 export default Results;
